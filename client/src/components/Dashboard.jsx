@@ -5,6 +5,13 @@ import { Link } from 'react-router-dom';
 
 const Dashboard = (props) => {
     const {allArtist} = props;
+    // const Test = ()=> {
+    //     for( let i = 0; i<allArtist.length; i++){
+    //         console.log(allArtist[i].contact.phone)
+    //     }
+    // }
+    // Test();
+
     return (
         <div>
             <h3>Meet GrandMa's Artist</h3>
@@ -28,7 +35,7 @@ const Dashboard = (props) => {
                                     <td>{artist.lastName}</td>
                                     <td>{artist.biography}</td>
                                     <td>{artist.artCollection}</td>
-                                    <td>{artist.email}</td>
+                                    <td>{artist.phone}|{artist.email}</td>
                                 </tr>
                             )
                         })

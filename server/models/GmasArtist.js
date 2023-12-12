@@ -1,16 +1,17 @@
 const mongoose = require('mongoose');
 
-const contact = {
-    phone: {
-        type: String,
-        minLength: [10, "Phone Number must contain at least 10 digits"]
-    },
-    email: {
-        type: String,
-        required: [true, 'A Email Address is required'],
-        minLength: [6, "Email must be at least 6 characters"]
-    }
-}
+
+// const contact = {
+//     phone: {
+//         type: String,
+//         minLength: [10, "Phone Number must contain at least 10 digits"]
+//     },
+//     email: {
+//         type: String,
+//         required: [true, 'A Email Address is required'],
+//         minLength: [6, "Email must be at least 6 characters"]
+//     }
+// }
 
 const ArtistSchema = new mongoose.Schema( {
     firstName: {
@@ -55,48 +56,28 @@ const ArtistSchema = new mongoose.Schema( {
 
     artCollection: {
         artAsset1: {
-        name: String,
-        desc: String,
-        img: {
-            data: Buffer,
-            contentType: String
-        }
+        type: String,
+        desc: String        
     },
 
     artAsset2: {
         name: String,
-        desc: String,
-        img: {
-            data: Buffer,
-            contentType: String
-        }
+        desc: String
     },
 
     artAsset3: {
         name: String,
-        desc: String,
-        img: {
-            data: Buffer,
-            contentType: String
-        }
+        desc: String
     },
 
     artAsset4: {
         name: String,
-        desc: String,
-        img: {
-            data: Buffer,
-            contentType: String
-        }
+        desc: String
     },
 
     artAsset5: {
         name: String,
-        desc: String,
-        img: {
-            data: Buffer,
-            contentType: String
-        }
+        desc: String
     }
     }
 }, {timestamps: true});
