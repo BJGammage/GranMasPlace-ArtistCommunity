@@ -14,11 +14,13 @@ const GmaArtistSchema = new mongoose.Schema( {
         required: [true, "Must have a Last Name"],
         minLength: [2, "Name must be at least 2 characters"]
     },
+
     phone: {
         type: String,
         required: [true, "Must have a Phone Number"],
         minLength: [10, "Number must be at least 10 digits"]
     },
+    
     email: {
         type: String,
         required: [true, "Must have a Email"],
