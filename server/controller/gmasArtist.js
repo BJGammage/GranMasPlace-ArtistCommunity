@@ -1,4 +1,4 @@
-const Artist = require('../models/GmasArtist')
+const Artist = require('../models/GmasArtist');
 
 module.exports = { 
     findAll: (req,res) => { 

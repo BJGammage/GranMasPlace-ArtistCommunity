@@ -24,6 +24,7 @@ const Dashboard = (props) => {
                     <th scope="col">Biography</th>
                     <th scope="col">Art Collection</th>
                     <th scope="col">Connect with the Artist</th>
+                    <th scope="col">Details</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,8 +35,9 @@ const Dashboard = (props) => {
                                     <td>{artist.firstName}</td>
                                     <td>{artist.lastName}</td>
                                     <td>{artist.biography}</td>
-                                    <td>{artist.artCollection}</td>
-                                    <td>{artist.phone}|{artist.email}</td>
+                                    <td>{artist.artAsset1}</td>
+                                    <td>{artist.phone} || {artist.email}</td>
+                                    <td><Link to={`/artist/${artist._id}`} ><button className='btn btn-primary'>Meet the Artist</button></Link> || <button className='btn btn-warning'>Shop Art</button></td>
                                 </tr>
                             )
                         })

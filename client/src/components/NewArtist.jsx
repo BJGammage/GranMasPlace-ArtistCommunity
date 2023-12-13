@@ -6,23 +6,39 @@ import axios from 'axios';
 const NewArtist = (props) => {
 
     const { allArtist,setAllArtist }=props;
-    const [newArtist,setNewArtist] = useState( {firstName:"",lastName:"",biography:"",email:"",password:"",artCollection:[]})
+    const [newArtist,setNewArtist] = useState( {firstName:"",lastName:"",biography:"",phone:"",email:"",password:"",artAsset1:""})
+    const [errors,setErrors] = useState('');
     const navigate = useNavigate();
     const newArtistHandler = e => {
         e.preventDefault();
         const createdArtist = {...newArtist}
-        axios.post("http://127.0.0.1:8000/api/artist/",createdArtist)
+        axios.post("http://127.0.0.1:8000/api/artist",createdArtist)
         .then( res => {
             setAllArtist( [...allArtist,res.data] );
             navigate("/artist");
         })
-        .catch( err => console.log(err));
+        .catch( err => {
+            console.log(err.response.data.errors);
+            const errArray = [];
+            for (const key of Object.keys(err.response.data.errors)){
+                errArray.push(err.response.data.errors[key].message);
+            }
+            setErrors(errArray);
+        });
+            
     };
 
     return (
         <div>
             <h3>New Artist Profile</h3>
             <form className="needs-validation" onSubmit={newArtistHandler} noValidate>
+                {/* {
+                    errors.map( (err) => {
+                        return(
+                            <p key={err} style={{color:'red'}}>{err}</p>
+                        )
+                    })
+                }; */}
                 <div className="form-row">
                     
                     <div className=" mb-3">
@@ -78,6 +94,19 @@ const NewArtist = (props) => {
                         placeholder="Email"
                         value={newArtist.email} 
                         onChange={ e => setNewArtist( {...newArtist,email: e.target.value})} />
+                    </div>
+                </div>
+                
+                <div className="form-group row mb-3">
+                    <label htmlFor="inputPhone3" className="col-sm-2 col-form-label">Phone</label>
+                    <div className="col-sm-10">
+                    <input 
+                        type="phone" 
+                        className="form-control" 
+                        id="inputPhone3" 
+                        placeholder="Phone"
+                        value={newArtist.phone} 
+                        onChange={ e => setNewArtist( {...newArtist,phone: e.target.value})} />
                     </div>
                 </div>
 

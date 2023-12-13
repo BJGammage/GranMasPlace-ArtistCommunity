@@ -1,85 +1,43 @@
 const mongoose = require('mongoose');
 
 
-// const contact = {
-//     phone: {
-//         type: String,
-//         minLength: [10, "Phone Number must contain at least 10 digits"]
-//     },
-//     email: {
-//         type: String,
-//         required: [true, 'A Email Address is required'],
-//         minLength: [6, "Email must be at least 6 characters"]
-//     }
-// }
 
-const ArtistSchema = new mongoose.Schema( {
+
+const GmaArtistSchema = new mongoose.Schema( {
     firstName: {
         type: String,
-        required: [true, 'First Name is required'],
-        minLength: [2, "First Name must be at least 2 characters"]
+        required: [true, "Must have a First Name"],
+        minLength: [2, "Name must be at least 2 characters"]
     },
-    
     lastName: {
         type: String,
-        required: [true, 'Last Name is required'],
-        minLength: [2, "Last Name must be at least 2 characters"]
+        required: [true, "Must have a Last Name"],
+        minLength: [2, "Name must be at least 2 characters"]
     },
-
-    contact: {
-        phone: {
-            type: String,
-            minLength: [10, "Phone Number must contain at least 10 digits"]
-        },
-        email: {
-            type: String,
-            required: [true, 'A Email Address is required'],
-            minLength: [6, "Email must be at least 6 characters"]
-        }
-    }
-        
-    ,
-
+    phone: {
+        type: String,
+        required: [true, "Must have a Phone Number"],
+        minLength: [10, "Number must be at least 10 digits"]
+    },
+    email: {
+        type: String,
+        required: [true, "Must have a Email"],
+        minLength: [5, "Email must be at least 5 characters"]
+    },
     password: {
         type: String,
-        required: [true, 'Password is required'],
+        required: [true, "Must have a Password"],
         minLength: [8, "Password must be at least 8 characters"]
     },
-    confirmPassword: {
-            type: String
-        },
     biography: {
         type: String,
-        required: [true, 'Biography is required'],
-        minLength: [5, "Biography must be at least 5 characters"]
-    },
-
-    artCollection: {
-        artAsset1: {
-        type: String,
-        desc: String        
-    },
-
-    artAsset2: {
-        name: String,
-        desc: String
-    },
-
-    artAsset3: {
-        name: String,
-        desc: String
-    },
-
-    artAsset4: {
-        name: String,
-        desc: String
-    },
-
-    artAsset5: {
-        name: String,
-        desc: String
+        required: [true, "Must have a Short Bio"],
+        minLength: [5, "At Least 5 Characters Please"]
+    }, 
+    artAsset1: {
+        type: String
     }
-    }
-}, {timestamps: true});
+    
+},{timestamps:true});
 
-module.exports = mongoose.model("Artist", ArtistSchema);
+module.exports = mongoose.model("Artist", GmaArtistSchema);

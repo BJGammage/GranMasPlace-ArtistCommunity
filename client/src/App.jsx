@@ -6,6 +6,7 @@ import Home from './components/Home';
 import ArtistView from './views/Artist';
 import ShopView from './views/Shop';
 import NewArtist from './components/NewArtist';
+import ViewArtist from './components/ViewArtist';
 
 function App() {
   const [allArtist,setAllArtist] = useState( [] );
@@ -20,7 +21,7 @@ function App() {
       }, []);
 
   return (
-    <div style={{width: 1200}}>
+    <div>
       <BrowserRouter>
         <h1>Grand Ma's Place</h1>
         <Routes>
@@ -28,6 +29,7 @@ function App() {
           <Route path='/shop' element={ <ShopView /> } />
           <Route exact path='/' element={ <Home default/>} />
           <Route path='/artist/new/' element={ <NewArtist allArtist={allArtist} setAllArtist={setAllArtist} />} />
+          <Route path="/artist/:id" element={ <ViewArtist />} />
         </Routes>
       </BrowserRouter>
     </div>
