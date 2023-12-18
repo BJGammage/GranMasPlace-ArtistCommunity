@@ -1,5 +1,6 @@
 const Artist = require('../models/GmasArtist');
 
+
 module.exports = { 
     findAll: (req,res) => { 
         Artist.find()
@@ -21,13 +22,13 @@ module.exports = {
 
     update: (req,res) => {
         Artist.findByIdAndUpdate(req.params.id, req.body, {new:true})
-        .then( addedArt => res.json(addedArt))
+        .then( updateArtist => res.json(updateArtist))
         .catch( err => res.status(400).json(err))
     },
 
     delete: (req,res) => {
         Artist.findByIdAndDelete( req.params.id)
-        .then( soldArt => res.json(soldArt))
+        .then( removeArtist => res.json(removeArtist))
         .catch( err => res.status(400).json(err))
     }
 }

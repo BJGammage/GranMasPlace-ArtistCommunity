@@ -3,9 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
-const NewArtist = (props) => {
-
-    const { allArtist,setAllArtist }=props;
+const NewArtist = ({ allArtist,setAllArtist }) => {
+    
     const [newArtist,setNewArtist] = useState( {firstName:"",lastName:"",biography:"",phone:"",email:"",password:"",artAsset1:""})
     const [errors,setErrors] = useState('');
     const navigate = useNavigate();

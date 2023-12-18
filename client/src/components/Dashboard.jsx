@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 
 
-const Dashboard = (props) => {
-    const {allArtist} = props;
+const Dashboard = ({allArtist}) => {
+    
     // const Test = ()=> {
     //     for( let i = 0; i<allArtist.length; i++){
     //         console.log(allArtist[i].contact.phone)

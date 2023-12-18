@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 
 
 
+
 const GmaArtistSchema = new mongoose.Schema( {
     firstName: {
         type: String,
@@ -36,9 +37,11 @@ const GmaArtistSchema = new mongoose.Schema( {
         required: [true, "Must have a Short Bio"],
         minLength: [5, "At Least 5 Characters Please"]
     }, 
-    artAsset1: {
-        type: String
+    profileImg: {
+        type: String,
+        desc: String
     }
+    
     
 },{timestamps:true});
 

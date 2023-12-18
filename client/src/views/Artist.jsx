@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom';
 import Dashboard from '../components/Dashboard';
 import NewArtist from '../components/NewArtist';
 
-const Artist = (props) => {
-    const {allArtist,setAllArtist} = props;
+const Artist = ({allArtist,setAllArtist}) => {
+    
     return (
             <>
             <div>
